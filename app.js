@@ -22,11 +22,12 @@ app.set('view engine', 'ejs');                  //configuro que las vistas se va
 //MIDDLEWARES
 //son funciones que se ejecutan con cada peticion y que van a permitir o no permitir realizar algo
 //use es un metodo que OBLIGA a (en este caso) A MI APLICACION a usar algo (ejecutar la funcion)
+app.use(cors())                                             //obliga al servidor a permitir el cruce de origenes de front/back
 app.use(logger('dev'))                                      //obliga a el servidor a usar el MIDDLEWARE de registro de peticion
 app.use(express.json())                                     //obliga a el servidor a TRANSFORMAR/MANEJAR formato JSON (post/put)
 app.use(express.urlencoded({ extended: false }))            //obliga a el servidor a ACCEDER a consultar complejas (permite leer querparams de una peticion)
 app.use(express.static(path.join(__dirname, 'public')))     //obliga a el servidor a generar una carpeta de acceso PUBLICO al cliente
-app.use(cors())                                             //obliga al servidor a permitir el cruce de origenes de front/back
+
 
 //ENDPOINTS
 app.use('/api', indexRouter)  //obligo al servidor a usar las rutas definidas en el enrutador principal con la palabra "/api"
