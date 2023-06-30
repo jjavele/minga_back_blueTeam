@@ -1,6 +1,6 @@
 import "dotenv/config.js"                     //configura las variables de entorno de la aplicacion
 import "./config/db.js"                       //configura la conexion con la base de datos
-import createError from 'http-errors'         //modulo necesario para crear/configurar errores en nuestra aplicacion
+// import createError from 'http-errors'      //modulo necesario para crear/configurar errores en nuestra aplicacion
 import express from 'express'                 //modulo necesario para levantar y configurar un servidor
 import path from 'path'                       //modulo necesario para conocer la ubicacion de nuestro servidor
 import cookieParser from 'cookie-parser'      //modulo para configurar cookies
@@ -8,6 +8,9 @@ import logger from 'morgan'                   //modulo para registrar las petici
 import { __dirname } from './utils.js'        //importo la configuracion de la ruta padre
 import cors from 'cors'                       //modulo para permitir origenes cruzados (front con el back)
 import indexRouter from './routes/index.js'   //enrutador principal de la app
+
+import notFoundHandler from "./middlewares/not_found_handler.js"
+import errorHandler from "./middlewares/error_handler.js"
 
 let app = express();                          //defino una variable con la ejecucion del modulo express para CREAR un servidor 
 
@@ -27,5 +30,8 @@ app.use(cors())                                             //obliga al servidor
 
 //ENDPOINTS
 app.use('/api', indexRouter)  //obligo al servidor a usar las rutas definidas en el enrutador principal con la palabra "/api"
+
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 export default app
