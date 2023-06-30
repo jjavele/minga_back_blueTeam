@@ -10,7 +10,8 @@ export default async (req, res, next) => {
             message: 'User created'
         })
     } catch (error) {
-        console.log(error)                  //consologueo el error
+
+        console.log(error) //consologueo el error
         next(error)
         }
     }

@@ -1,6 +1,8 @@
 import "dotenv/config.js"                     //configura las variables de entorno de la aplicacion
 import "./config/db.js"                       //configura la conexion con la base de datos
+
 // import createError from 'http-errors'      //modulo necesario para crear/configurar errores en nuestra aplicacion
+
 import express from 'express'                 //modulo necesario para levantar y configurar un servidor
 import path from 'path'                       //modulo necesario para conocer la ubicacion de nuestro servidor
 import cookieParser from 'cookie-parser'      //modulo para configurar cookies
