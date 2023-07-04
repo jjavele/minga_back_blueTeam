@@ -2,16 +2,25 @@ import User from '../../models/User.js'
 
 export default async (req, res, next) => {
     try {
-        const one = await User.findOne({email:req.body.email});
+        const one = await User.findOneAndUpdate(
+            {email:req.body.email},
+            { online:true },
+            { new:true }
+            );
 
-        return res.status(201).json({
-            response: one,
-            success: true,
-            message: 'User created'
+         
+        delete one.password
+        return res.status(200).json({
+            success:true,
+            message:'user signed in!',
+            reponse: {
+                user:one,
+                token:req.token
+            }
         })
-    } catch (error) {
 
-        console.log(error) //consologueo el error
-        next(error)
+    } catch (error) {
+    
+        return next(error)
         }
     }
