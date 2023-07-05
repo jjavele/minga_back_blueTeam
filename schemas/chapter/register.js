@@ -20,7 +20,7 @@ const chapterRegister = joi.object({
             'string.alphanum': 'Title must be an alphanumeric character.',
         }),
     cover_photo: joi.string()
-        .required()
+        /*.required()*/
         .uri()
         .messages({
             'any.required' : 'Cover photo is required',
