@@ -1,3 +1,5 @@
+import Chapter from "../../models/Chapter.js";
+
 export default function (req, res) {
   try {
     return res.status(200).json({

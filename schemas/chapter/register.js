@@ -34,9 +34,10 @@ const chapterRegister = joi.object({
         }),
     order: joi.number()
         .integer()
-        .min(1)
+        /*.min(1)*/
         .messages({
         'number.integer' : 'Order must be an integer number',
+        'number.base' : 'Order must be a number'
     }),
 
 
