@@ -5,7 +5,7 @@ const userSignin = joi.object({
         .required()
         .email({
             minDomainSegments: 2
-            })
+        })
         .messages({
             'string.base': 'Email must be a text',
             'string.empty': 'Email is a required field',
@@ -24,7 +24,6 @@ const userSignin = joi.object({
             'string.max': 'Password cannot be longer than 35 characters',
             'string.alphanum': 'Password can only contain alphanumeric characters'
         })
-   
 })
 
 export default userSignin;

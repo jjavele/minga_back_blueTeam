@@ -1,7 +1,6 @@
 import User from "../models/User.js"
 //import createHttpError from "http-errors"
 //lo correcto seria usar createHttpError
-
 export default async(req,res,next)=> {
     try {
         let one = await User.findOne({ email:req.body.email })

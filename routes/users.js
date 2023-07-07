@@ -15,6 +15,6 @@ let auth_router = Router();
 
 auth_router.get('/',passport.authenticate('jwt',{ session:false }),read) //leer uno o todos
 auth_router.post("/signin", validator(signinSchema),accountNotExists, passwordIsOk, generateToken,signin); //envía datos al servidor
-auth_router.post("/signout",);
+auth_router.post("/signout",signout);
 
 export default auth_router;

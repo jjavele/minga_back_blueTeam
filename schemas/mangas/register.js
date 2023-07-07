@@ -2,7 +2,8 @@ import joi from 'joi'
 
 const mangaRegister = joi.object({
     author_id: joi.string()
-        .required()
+        // .required()
+        .optional()
         .messages({
             'any.required': 'Author is required',
         }),
@@ -11,11 +12,12 @@ const mangaRegister = joi.object({
         .messages({
             'any.required': 'Category is required',
         }),
-    character_photo: joi.string()
+    description: joi.string()
         .required()
-        .uri()
+        .min(10)
         .messages({
-            'any.required': 'Character photo is required',
+            "string.min": "description length must be at least 10 characters long",
+            "string.empty": "description is not allowed to be empty"
         }),
     title: joi.string()
         .required()

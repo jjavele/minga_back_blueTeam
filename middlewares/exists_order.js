@@ -9,7 +9,8 @@ const exists_order = async (req, res, next) => {
 
         // Verificar si el capítulo ya existe
         if (existingChapter) {
-            return res.status(400).json({ error: 'El número de capítulo ya existe.' });
+
+            return res.status(400).json({ message: 'El número de capítulo ya existe.' });
         }
 
         // Si el capítulo no existe, continuar al siguiente middleware o controlador
@@ -19,5 +20,4 @@ const exists_order = async (req, res, next) => {
     }
 };
 
-// Exportar el middleware
 export default exists_order;
