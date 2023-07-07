@@ -7,7 +7,7 @@ export default async(req,res,next)=> {
         if (!one) {
             return res.status(404).json({
                 success:false,
-                message: 'user nor registered!'
+                message: 'This mail is not a user!'
             })
         }
         return next()

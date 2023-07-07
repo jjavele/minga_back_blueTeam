@@ -7,7 +7,7 @@ export default async(req,res,next)=> {
         if (one) {
             return res.status(400).json({
                 success:false,
-                message: 'user registered!'
+                message: ['This mail is already in use']
             })
         }
         return next()
