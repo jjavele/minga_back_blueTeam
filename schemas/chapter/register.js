@@ -31,9 +31,9 @@ const chapterRegister = joi.object({
         .messages({
             'any.required' : 'Pages are required',
             'string.min': 'Pages must be at least one valid URL',
+            'array.base': 'Pages must be a valid URL',
         }),
     order: joi.number()
-        .integer()
         /*.min(1)*/
         .messages({
         'number.integer' : 'Order must be an integer number',

@@ -14,9 +14,6 @@ const validator = (schema) => [
 
         return next();
     }
-
-    return next();
-  },
 ];
 
 export default validator;
