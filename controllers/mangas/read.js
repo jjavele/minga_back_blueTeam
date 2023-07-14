@@ -22,10 +22,11 @@ async function read(req, res, next) {
     }
 
     let mangas = await Manga
-      .find(queries, "title -_id")
+      .find(queries, "cover_photo title -_id")
       .sort({ title: "asc" })
       .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
-      .limit(pagination.limit > 0 ? pagination.limit : 0);
+      .limit(pagination.limit > 0 ? pagination.limit : 0)
+      .populate("category_id", "name -_id")
 
     const count = await Manga.countDocuments(queries);
     const totalPages = Math.ceil(count / pagination.limit);

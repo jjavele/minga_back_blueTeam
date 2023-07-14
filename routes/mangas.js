@@ -4,7 +4,6 @@ import passport from 'passport';
 import create from '../controllers/mangas/create.js';
 import validator from '../middlewares/validator.js'
 import mangaRegister from '../schemas/mangas/register.js';
-import passport from '../middlewares/passport.js';
 import read_news from '../controllers/mangas/read_news.js';
 
 let manga_router = Router();

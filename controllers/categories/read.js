@@ -2,10 +2,10 @@ import Category from "../../models/Category.js";
 
 export default async (req, res) => {
   try {
-    let all = await Category.find();
-    if (all.length > 0) {
+    let categories = await Category.find();
+    if (categories.length > 0) {
       return res.status(200).json({
-        response: all,
+        categories,
         success: true,
         message: "you have requested GET /api/categories/",
         date: new Date(),
