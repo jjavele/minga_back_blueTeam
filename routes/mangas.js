@@ -11,8 +11,8 @@ let manga_router = Router();
 
 manga_router.post('/mangas',validator(mangaRegister),create) //crea una manga
 manga_router.get('/',read) //leer uno o todos
-manga_router.get('/:id',passport.authenticate('jwt',{ session:false }),read_one) //leer uno o todos
 manga_router.get('/news', passport.authenticate('jwt',{ session:false }), read_news)
+manga_router.get('/:id',passport.authenticate('jwt',{ session:false }),read_one) //leer uno o todos
 // manga_router.purge() //actualizar un autor
 // manga_router.delete() //elimina un autor
 

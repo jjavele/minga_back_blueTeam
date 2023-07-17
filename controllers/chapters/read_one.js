@@ -56,4 +56,6 @@ const read_one = async (req, res, next) => {
     }
 };
 
+
 export default read_one;
+
