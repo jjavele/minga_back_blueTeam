@@ -1,13 +1,13 @@
 import User from "../models/User.js"
 
-export default async(req,res,next)=> {
+export default async (req, res, next) => {
     try {
-        let one = await User.findOne({ email:req.body.email })
+        let one = await User.findOne({ email: req.body.email })
         console.log(one)
         if (!one) {
             return res.status(404).json({
-                success:false,
-                message: 'This mail is not a user!'
+                success: false,
+                message: 'user nor registered!'
             })
         }
         return next()

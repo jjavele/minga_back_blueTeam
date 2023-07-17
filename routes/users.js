@@ -14,12 +14,11 @@ import is_property_of from "../middlewares/is_property_of.js"
 import accountExists from "../middlewares/accountExists.js";
 import createHash from "../middlewares/createHash.js";
 
-
 let auth_router = Router();
 
+auth_router.post("/signin", validator(signinSchema),accountNotExists, passwordIsOk, generateToken,signin); //envía datos al servidor
+auth_router.post("/signout",signout);
 auth_router.post('/register',validator(userSignUp),accountExists,createHash,register)
 auth_router.get('/',passport.authenticate('jwt',{ session:false }),read) //leer uno o todos
-auth_router.post("/signin", validator(signinSchema),accountNotExists, passwordIsOk, generateToken,signin); //envía datos al servidor
-auth_router.post("/signout",);
 
 export default auth_router;

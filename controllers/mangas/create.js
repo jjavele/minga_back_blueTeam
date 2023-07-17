@@ -10,7 +10,6 @@ export default async (req, res, next) => {
             response: one,
             success: true,
             message: 'Manga created sucessfully' +one._id
-
         })
 
     } catch (error) {
