@@ -13,8 +13,8 @@ import chapterRegister from '../schemas/chapter/register.js'
 
 let chapter_router = Router();
 
+chapter_router.get('/',passport.authenticate('jwt',{ session:false }),read) //leer uno o todos
 chapter_router.post('/', passport.authenticate('jwt',{ session:false }), validator(chapterRegister), /*has_permition, is_active, is_property_of, */ add_cover_photo, exists_order, next_order, create) //crea un capítulo
-chapter_router.get('/', read) //leer uno o todos
 // chapter_router.purge() //actualizar un autor
 // chapter_router.delete() //elimina un autor
 
