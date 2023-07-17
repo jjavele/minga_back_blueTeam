@@ -6,6 +6,8 @@ import chapterRegister from '../schemas/chapter/register.js'
 import exists_order from '../middlewares/exists_order.js'
 import passport from '../middlewares/passport.js';
 import read_one from '../controllers/chapters/read_one.js';
+import add_cover_photo from '../middlewares/add_cover_photo.js';
+import next_order from '../middlewares/next_order.js';
 
 let chapter_router = Router();
 

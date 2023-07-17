@@ -1,6 +1,5 @@
 import Router from 'express';
 import read from '../controllers/mangas/read.js'
-import passport from 'passport';
 import create from '../controllers/mangas/create.js';
 import validator from '../middlewares/validator.js'
 import mangaRegister from '../schemas/mangas/register.js';
