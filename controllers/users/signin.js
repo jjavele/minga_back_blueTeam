@@ -8,7 +8,6 @@ export default async (req, res, next) => {
             { new: true }
         );
 
-
         delete one.password
         return res.status(200).json({
 
@@ -17,12 +16,9 @@ export default async (req, res, next) => {
             response: {
                 user: one,
                 token: req.token
-
             }
         })
-
     } catch (error) {
-
         return next(error)
     }
 }

@@ -9,7 +9,6 @@ const exists_order = async (req, res, next) => {
 
         // Verificar si el capítulo ya existe
         if (existingChapter) {
-
             return res.status(400).json({ message: 'El número de capítulo ya existe.' });
         }
 
