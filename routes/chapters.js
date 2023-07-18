@@ -8,7 +8,6 @@ import passport from '../middlewares/passport.js';
 import read_one from '../controllers/chapters/read_one.js';
 import add_cover_photo from '../middlewares/add_cover_photo.js';
 import next_order from '../middlewares/next_order.js';
-import read_one from '../controllers/chapters/read_one.js';
  
 let chapter_router = Router();
 
