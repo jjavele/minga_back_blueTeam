@@ -10,15 +10,16 @@ import get_me from '../controllers/mangas/get_me.js';
 import is_property_of from '../middlewares/is_property_of.js'
 import update from '../controllers/mangas/update.js';
 import destroy from '../controllers/mangas/destroy.js';
+import finds_id from '../middlewares/finds_id.js';
 
 let manga_router = Router();
 
 manga_router.post('/mangas',validator(mangaRegister),create) //crea una manga
 manga_router.get('/',read) //leer uno o todos
-manga_router.get('/me',passport.authenticate('jwt',{ session:false })/*, finds_id */,is_property_of,get_me)
+manga_router.get('/me',passport.authenticate('jwt',{ session:false }), finds_id,/* is_property_of, */get_me)
 manga_router.get('/news', passport.authenticate('jwt',{ session:false }), read_news)
 manga_router.get('/:id',passport.authenticate('jwt',{ session:false }),read_one)
-manga_router.put('/:id',passport.authenticate('jwt',{ session:false }),/* finds_id, */ /* ,is_active, */ is_property_of, update) //actualizar un manga
-manga_router.delete('/:id',passport.authenticate('jwt',{ session:false }),/* finds_id, */ /* ,is_active, */ is_property_of, destroy)  //elimina un manga
+manga_router.put('/:id',passport.authenticate('jwt',{ session:false }),finds_id, /* ,is_active, */ is_property_of, update) //actualizar un manga
+manga_router.delete('/:id',passport.authenticate('jwt',{ session:false }),finds_id, /* ,is_active, */ is_property_of, destroy)  //elimina un manga
 
 export default manga_router;

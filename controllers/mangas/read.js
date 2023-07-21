@@ -22,7 +22,7 @@ async function read(req, res, next) {
     }
 
     let mangas = await Manga
-      .find(queries, "cover_photo title _id")
+      .find(queries, "cover_photo title _id author_id")
       .sort({ title: "asc" })
       .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
       .limit(pagination.limit > 0 ? pagination.limit : 0)
