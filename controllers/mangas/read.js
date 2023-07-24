@@ -33,17 +33,17 @@ async function read(req, res, next) {
     const prevPage = pagination.page > 1 ? Number(pagination.page) - 1 : 0;
     const nextPage = pagination.page < totalPages ? Number(pagination.page) + 1 : 0;
 
-    const respuesta = {
+    const response = {
       success: true,
       mangas: mangas,
       prev: prevPage,
       next: nextPage,
       totalPages
     }
-    console.log(respuesta)
+    console.log(response)
 
     return res.status(200).json(
-    respuesta  
+    response  
     );
   } catch (error) {
     next(error);
