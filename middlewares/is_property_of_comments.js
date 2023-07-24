@@ -2,8 +2,8 @@ import Comment from '../models/Comment.js';
 
 const is_property_of_comments = async (req, res, next) => {
     try {
-        const { id } = req.params;
-        const comment = await Comment.findById(id);
+        let { id } = req.params;
+        let comment = await Comment.findById(id);
 
         if (!comment) {
         return res.status(404).json({ error: 'Comment not found' });
