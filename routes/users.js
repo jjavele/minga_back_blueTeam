@@ -15,14 +15,18 @@ import accountExists from "../middlewares/accountExists.js";
 import createHash from "../middlewares/createHash.js";
 import  update  from "../controllers/authors/update.js";
 import finds_id from "../middlewares/finds_id.js";
+import verify_email from "../controllers/users/verify_email.js"
+import updateUser from "../controllers/users/updateUser.js"
 
 
 let auth_router = Router();
 
-auth_router.post("/signin", validator(signinSchema),accountNotExists, passwordIsOk, generateToken,signin); //envía datos al servidor
+auth_router.post("/signin", validator(signinSchema), accountNotExists, passwordIsOk, generateToken,signin); //envía datos al servidor
 auth_router.post("/signout",signout);
 auth_router.post('/register',validator(userSignUp),accountExists,createHash,register)
-auth_router.get('/',passport.authenticate('jwt',{ session:false }),read) //leer uno o todos
-auth_router.put('/role/author/:id',passport.authenticate('jwt', {session: false}),finds_id,update)
+auth_router.get("/verify/:verify_code", verify_email)
+auth_router.get('/',/*passport.authenticate('jwt',{ session:false }),*/read) //leer uno o todos
+auth_router.put('/role/author/:id',passport.authenticate('jwt', {session: false}),finds_id,updateUser)
+auth_router.put('/update/:id', updateUser)
 
 export default auth_router;
