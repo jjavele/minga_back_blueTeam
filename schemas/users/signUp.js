@@ -15,7 +15,7 @@ const userSignUp = joi.object({
     "string.uri": "Invalid photo URL. Please provide a valid URL",
     "string.empty": "Please, insert a photo URL"
   }),
-  password: joi.string().required().min(8).max(20).messages({
+  password: joi.string().required().min(8).max(500).messages({
     "string.min": "Your password must have a minimum of 8 characters",
     "string.max": "Your password must have a maximum of 20 characters",
     "string.empty": "Please, insert a password"
